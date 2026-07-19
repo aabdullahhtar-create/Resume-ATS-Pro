@@ -1,97 +1,256 @@
-# ResumeATS Pro — Free ATS Resume Builder
+# ResumeATS Pro
 
-A modern Next.js + Tailwind resume builder for creating ATS-compatible resumes, checking resume strength, and exporting resumes for free.
+An AI-powered resume builder and ATS optimization platform that helps students, graduates, and job seekers create professional resumes tailored to specific job descriptions.
 
-## What was improved
+---
 
-- Redesigned the landing page with a more modern hero, stronger CTAs, feature cards, and trust badges.
-- Removed the payment/download lock so users can export for free.
-- Added a library of 22 free resume templates, including 17 ATS-safe layouts, 6 designs that remain balanced without a headline, international CV styles, and optional photo layouts.
-- Added five new ATS-safe templates: Essential, Ledger, Vertex, Chronicle, and Signal.
-- Improved the builder interface with:
-  - Live ATS score card
-  - ATS Boost button for editable keyword and achievement examples
-  - Starter resume presets for Business Analyst, Software Engineer, Healthcare, and Marketing
-  - One-click skill chips based on the target role
-  - Modern template selector pills
-  - Optional professional headline
-  - Hide/show controls for every major resume section
-  - Custom section heading names
-  - Compact/comfortable spacing and three resume text sizes
-- Added free export options:
-  - ATS PDF via browser print/save PDF, preserving selectable text
-  - Plain TXT export for parser-friendly resume text
-  - PNG and JPG preview exports
-- Improved template gallery cards with ATS-safe badges, headline-optional labels, filters, tone labels, and best-use guidance.
-- Added LinkedIn in-app browser detection so users are told to open Chrome, Safari, or Edge before starting Google OAuth.
+## Live Demo
 
-## Tech stack
+**Application:** https://zingy-zuccutto-be576c.netlify.app/
 
-- Next.js 15
-- React 19
-- Tailwind CSS
-- Framer Motion
-- html2canvas for PNG/JPG previews
-- Mammoth and pdf-parse for upload parsing
+## GitHub Repository
 
-## Run locally
+**Repository:** https://github.com/aabdullahhtar-create/Resume-ATS-Pro
+
+---
+
+# Problem Statement
+
+Many job seekers struggle to create resumes that effectively showcase their skills while also passing Applicant Tracking Systems (ATS). Generic resume templates often fail to highlight relevant keywords, making it difficult for candidates to receive interview opportunities. Professional resume writing services can also be expensive and inaccessible to many students and early-career professionals.
+
+ResumeATS Pro addresses this problem by providing an intelligent platform where users can build, customize, optimize, and export ATS-friendly resumes with the assistance of Artificial Intelligence.
+
+---
+
+# Target Users
+
+* Students
+* Fresh graduates
+* Internship applicants
+* Job seekers
+* Career changers
+* Professionals applying for multiple positions
+
+---
+
+# Features
+
+ResumeATS Pro includes the following features:
+
+* Secure user authentication
+* User registration and login
+* Resume dashboard
+* Create multiple resumes
+* Edit existing resumes
+* Delete resumes
+* Resume templates
+* Live resume preview
+* Resume PDF export
+* ATS Resume Checker
+* AI Resume Generator
+* Voice Resume Assistant
+* Resume upload
+* Job description analysis
+* ATS keyword matching
+* Resume improvement suggestions
+* Responsive mobile-friendly interface
+* Cloud database storage
+
+---
+
+# AI Feature
+
+## AI Resume Generator & ATS Assistant
+
+The application contains an AI-powered Resume Generator and ATS Assistant that helps users improve resume quality according to a target job description.
+
+The AI can:
+
+* Generate professional summaries
+* Improve experience bullet points
+* Analyze job descriptions
+* Identify important ATS keywords
+* Recommend missing skills
+* Suggest improvements to increase ATS compatibility
+
+The AI does not intentionally invent qualifications or work experience and instead improves the information supplied by the user.
+
+---
+
+# AI Instructions (System Prompt)
+
+The application uses custom instructions for the AI model.
+
+```text
+You are an expert resume writing assistant and ATS optimization specialist.
+
+Your responsibility is to help users create professional resumes while remaining truthful.
+
+Rules:
+
+• Never invent jobs, employers, education, certifications, skills, or achievements.
+• Improve wording using professional language.
+• Use strong action verbs.
+• Optimize resumes for Applicant Tracking Systems.
+• Match relevant keywords from the provided job description only when supported by the user's experience.
+• Keep writing concise and professional.
+• Return structured, easy-to-read content.
+• Recommend improvements whenever information is missing.
+```
+
+---
+
+# Technologies Used
+
+## Frontend
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+
+## Backend
+
+* Next.js API Routes
+* Node.js
+
+## Database
+
+* Prisma ORM
+* PostgreSQL (Neon)
+
+## Authentication
+
+* Google OAuth
+* Custom Authentication
+
+## Artificial Intelligence
+
+* Google Gemini API
+
+## Deployment
+
+* GitHub
+* Netlify
+
+---
+
+# Project Structure
+
+```text
+Resume-ATS-Pro
+│
+├── src/
+├── prisma/
+├── public/
+├── scripts/
+├── mobile-fallback/
+├── package.json
+├── README.md
+└── .env.example
+```
+
+# How to Run the Project
+
+## Prerequisites
+
+Install:
+
+* Node.js (18+)
+* npm
+* PostgreSQL database (or Neon)
+* Google Gemini API Key
+
+---
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/aabdullahhtar-create/Resume-ATS-Pro.git
+```
+
+---
+
+## Navigate to the Project
+
+```bash
+cd Resume-ATS-Pro
+```
+
+---
+
+## Install Dependencies
 
 ```bash
 npm install
+```
+
+---
+
+## Create Environment Variables
+
+Create a file named:
+
+```text
+.env.local
+```
+
+Add the required variables:
+
+```env
+DATABASE_URL=
+GEMINI_API_KEY=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=http://localhost:3000
+```
+
+---
+
+## Run the Application
+
+```bash
 npm run dev
 ```
 
-Open the local URL shown in your terminal.
+Open:
 
-## Recommended ATS export workflow
+```text
+http://localhost:3000
+```
 
-1. Build the resume in `/builder`.
-2. Watch the live ATS score and fix missing sections.
-3. Click **ATS PDF** and choose **Save as PDF** in the browser print dialog.
-4. Use **TXT** when you need a parser-friendly plain text copy.
+---
 
-Note: PNG/JPG exports are useful for previews and sharing images, but they are not the best format for ATS systems because they are image-based.
+# Environment Variables
 
+Sensitive credentials are **not** included in this repository.
 
-## Backend version added
+A `.env.example` file is provided to demonstrate the required configuration.
 
-This package now includes a proper backend for user accounts and cloud resume storage.
+---
 
-New features:
+# Future Improvements
 
-- Signup and login pages: `/signup`, `/login`
-- User dashboard: `/dashboard`
-- Cloud save from the builder using **Save Cloud**
-- Auth API routes under `/api/auth/*`
-- Resume CRUD API routes under `/api/resumes/*`
-- Prisma PostgreSQL schema and migration
-- Netlify config for deployment
+* More resume templates
+* Cover letter generation
+* LinkedIn profile optimization
+* Interview preparation assistant
+* AI grammar analysis
+* Resume version history
+* Recruiter feedback system
+* Multi-language resume support
 
-See `BACKEND_SETUP.md` for full setup and deployment steps.
+---
 
-## Authentication gate added
+# Author
 
-Users must now sign up or log in before using builder features, templates, ATS checking, uploading, cloud saving, or the dashboard.
+**Abdullah Akhtar**
 
-Supported login methods:
+GitHub: https://github.com/aabdullahhtar-create
 
-- Email + password
-- Google Sign-In
-- Apple ID Sign-In
+---
 
-See `AUTH_OAUTH_SETUP.md` for Google/Apple setup and redirect URLs.
+# License
 
-## Auth troubleshooting
-
-If signup/login shows an error, read `AUTH_TROUBLESHOOTING.md`. The Google and Apple buttons stay disabled until the required OAuth environment variables are added, so users will not be sent to broken authorization pages.
-
-## Important backend setup
-
-If signup shows a database connection message, read:
-
-- `DATABASE_FIX_FOR_YOUR_ERROR.md`
-- `AUTH_TROUBLESHOOTING.md`
-
-Email, Google, and Apple login need a real hosted PostgreSQL database before accounts can be created.
-
-Update README.md
+This project was developed as an individual academic project for educational purposes.
