@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(18, 152, 232, 0.18), transparent 28rem),
+    radial-gradient(circle at 88% 4%, rgba(185, 251, 192, 0.22), transparent 25rem),
+    linear-gradient(180deg, #f8fdff 0%, #ecf7fb 46%, #ffffff 100%);
+  color: #0f172a;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.resume-paper {
+  width: 794px;
+  min-height: 1123px;
+  height: auto;
+  overflow: visible;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background: white;
+  color: #111827;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16);
+}
+
+.resume-paper * {
+  line-height: 1.34;
+}
+
+.resume-exporting {
+  box-shadow: none !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+
+.resume-section,
+.resume-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.print-resume {
+  color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: white !important;
+    width: 100%;
+    height: auto;
+  }
+
+  body > header,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    display: block !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  aside,
+  aside > div,
+  .print-stage {
+    display: block !important;
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: white !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .resume-preview-shell {
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .resume-preview-scale {
+    transform: none !important;
+    scale: 1 !important;
+  }
+
+  .resume-paper {
+    box-shadow: none !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0 !important;
+  }
+
+  .resume-section,
+  .resume-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+.resume-preview-shell {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+.animated-grid {
+  background-image:
+    linear-gradient(rgba(18, 152, 232, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 152, 232, 0.08) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
+}
+
+.lift-card {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.lift-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.14);
+  border-color: rgba(18, 152, 232, 0.24);
+}
+
+.fade-in-up {
+  animation: fadeInUp 600ms ease both;
+}
+
+.floating-orb {
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+.floating-orb-reverse {
+  animation: floatOrbReverse 10s ease-in-out infinite;
+}
+
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35), transparent 70%);
+  transition: transform 700ms ease;
+}
+
+.shimmer-button:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(28px, 18px, 0) scale(1.06);
+  }
+}
+
+@keyframes floatOrbReverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-22px, -18px, 0) scale(1.05);
+  }
+}

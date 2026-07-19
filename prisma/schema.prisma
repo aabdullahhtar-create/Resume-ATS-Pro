@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PaymentProvider {
+  JAZZCASH
+  EASYPAISA
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum OAuthProvider {
+  GOOGLE
+  APPLE
+}
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String?
+  passwordHash String?
+  unlocked     Boolean        @default(false)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  sessions     Session[]
+  accounts     OAuthAccount[]
+  resumes      Resume[]
+  payments     Payment[]
+}
+
+model OAuthAccount {
+  id             String        @id @default(cuid())
+  provider       OAuthProvider
+  providerUserId String
+  email          String
+  userId         String
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerUserId])
+  @@index([email])
+  @@index([userId])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Resume {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String   @default("Untitled Resume")
+  template  String   @default("eclipse")
+  data      Json
+  atsScore  Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([updatedAt])
+}
+
+model Payment {
+  id             String          @id @default(cuid())
+  userId         String?
+  provider       PaymentProvider
+  gatewayRef     String          @unique
+  amountPkr      Int
+  status         PaymentStatus   @default(PENDING)
+  rawCallback    Json?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  user           User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+}
