@@ -93,3 +93,5 @@ If signup shows a database connection message, read:
 - `AUTH_TROUBLESHOOTING.md`
 
 Email, Google, and Apple login need a real hosted PostgreSQL database before accounts can be created.
+
+Update README.md
