@@ -556,15 +556,6 @@ ResumeATS Pro follows these basic security practices:
 
 ---
 
-## 📝 Originality Statement
-
-ResumeATS Pro was designed and developed as an individual final project to solve a real problem faced by students, graduates, and job seekers.
-
-The project is not a renamed tutorial, copied repository, shared assignment, or template with only cosmetic changes. The application design, features, database integration, AI instructions, resume workflow, ATS functionality, and deployment were implemented specifically for this project.
-
-Third-party frameworks, libraries, APIs, and services are used as development tools and are acknowledged in the technology stack.
-
----
 
 ## 👨‍💻 Author
 
