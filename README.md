@@ -190,6 +190,52 @@ The application is deployed publicly on Netlify and can be accessed without down
 ---
 
 
+## 🖼️ Application Screenshots
+
+<div align="center">
+
+<p>
+The screenshots below highlight the main ResumeATS Pro pages and workflows.
+</p>
+
+<br>
+
+<h3>🏠 Landing Page</h3>
+
+<p>Explore ResumeATS Pro, review its key benefits, and start building an ATS-friendly resume.</p>
+
+<img src="./public/screenshots/landing-page.png" alt="ResumeATS Pro landing page" width="900" />
+
+<br><br><br>
+
+<h3>📊 Saved Resumes Dashboard</h3>
+
+<p>Create, manage, edit, and access saved resumes securely from the user dashboard.</p>
+
+<img src="./public/screenshots/dashboard.png" alt="ResumeATS Pro saved resumes dashboard" width="900" />
+
+<br><br><br>
+
+<h3>🎨 Resume Templates</h3>
+
+<p>Browse flexible ATS-compatible resume templates and select a layout for your resume.</p>
+
+<img src="./public/screenshots/resume-templates.png" alt="ResumeATS Pro resume templates page" width="900" />
+
+<br><br><br>
+
+<h3>🤖 ATS Rank Checker</h3>
+
+<p>Paste resume content, compare it with a job description, and receive ATS improvement guidance.</p>
+
+<img src="./public/screenshots/ats-checker.png" alt="ResumeATS Pro ATS rank checker" width="900" />
+
+<br>
+
+</div>
+
+---
+
 ## 🤖 AI-Powered Feature
 
 ### AI Resume Generator and ATS Assistant
